@@ -13,20 +13,20 @@ struct vec3{
         x -= u.x;
         y -= u.y;
         z -= u.z;
-        return this;
+        return *this;
     }
     vec3 & operator*(const float & u)
     {
         x *= u;
         y *= u;
         z *= u;
-        return this;
+        return *this;
     }
     vec3& operator+(const vec3 &u){
         x += u.x;
         y += u.y;
         z += u.z;
-        return this;
+        return *this;
     }
 };
 

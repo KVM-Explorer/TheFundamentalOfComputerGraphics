@@ -19,14 +19,14 @@ struct Color{
         g += u.g;
         b += u.b;
         a += u.a;
-        return this;
+        return *this;
     }
     Color& operator/(const float& u){
         r /= u;
         g /= u;
         b /= u;
         a /= u;
-        return this;
+        return *this;
     }   
     Color & operator*(const float & u)
     {
@@ -34,7 +34,7 @@ struct Color{
         g *= u;
         b *= u;
         a *= u;
-        return this;
+        return *this;
     }
     Color & operator*(const Color & u)
     {
@@ -42,7 +42,7 @@ struct Color{
         g *= u.g;
         b *= u.b;
         a *= u.a;
-        return this;
+        return *this;
     }
 };
 

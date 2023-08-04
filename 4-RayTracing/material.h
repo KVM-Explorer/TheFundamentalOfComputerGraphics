@@ -1,6 +1,8 @@
+#pragma once
 #include "../Common/color.h"
-#include <stdint.h>
+#include <cstdint>
 #include "../Common/vec.h"
+#include "../Common/math_tools.h"
 #include <cmath>
 struct Material{
     Color<float> ambient;
@@ -8,11 +10,10 @@ struct Material{
     Color<float> specular;
 
     // Diffuse + Specular
-    Color<float> evaulate(vec3<float> normal,vec3<float> light_pos,vec3<float> eye)
+    Color<float> evaluate(vec3<float> normal,vec3<float> light_pos,vec3<float> eye)
     {
-        const float PI = 3.1415926;
         // Diffuse
-        Color<float> d = diffuse / PI;
+        Color<float> d = diffuse / float(PI);
 
         // Specular 
         vec3<float> h = normalize(light_pos + eye);

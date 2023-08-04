@@ -1,9 +1,10 @@
+#pragma once    
 #include <cmath>
 #include <stdint.h>
-#include "../Common/Light.h"
 #include "ray.h"
 #include "surface.h"
-class Light{
+class Light {
+public:   
     virtual Color<float> illuminate(Ray r,HitRecord info) = 0;
 };
 
