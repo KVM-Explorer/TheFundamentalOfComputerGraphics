@@ -35,17 +35,17 @@ int main() {
     // std::array<std::array<Color<uint8_t>, WIDTH>, HEIGHT> pixel_data;
     PPM<Color<uint8_t>> Image(WIDTH, HEIGHT);
 
-    Sphere obj1({0.5,0.5, -4}, 0.5, m1);
+    Sphere obj1({0.5, 0.5, -4}, 0.5, m1);
     Sphere obj2({-0.5, 0.3, -4}, 0.3, m2);
     objects.push_back(&obj1);
     objects.push_back(&obj2);
 
     // Build Light
     std::vector<Light *> lights;
-    PointLight light0{{2, 2, 0}, {0.7, 0.3, 0.2}};
-    // AmbientLight light1{{0.2, 0.3, 0.1}};
+    PointLight light0{{2, 2, 0}, {0.9, 0.9, 0.9}};
+    AmbientLight light1{{0.2, 0.3, 0.1}};
     lights.push_back(&light0);
-    // lights.push_back(&light1);
+    lights.push_back(&light1);
 
     // RayTracing
     for (int row = 0; row < HEIGHT; row++)
@@ -82,10 +82,9 @@ int main() {
             // 4. Light Shading
             Color<float> color;
             if (closest_ret.t < INFINITY) {
-                color = {};
                 for (const auto &light : lights) {
-                    Color<float> color =
-                        color + light->illuminate(ray, closest_ret);
+                    auto tmp = light->illuminate(ray, closest_ret);
+                    color = color + tmp;
                 }
             } else {
                 color = DEFAULT_COLOR;
@@ -94,6 +93,7 @@ int main() {
             // 5. Set Pixel Color
             Color<uint8_t> pixel_color(color.r * 255, color.g * 255,
                                        color.b * 255, 255);
+           
             Image.set(HEIGHT - row - 1, col, pixel_color);
         }
 

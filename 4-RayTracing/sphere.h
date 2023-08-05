@@ -22,7 +22,7 @@ inline HitRecord Sphere::hit(Ray r,float t0,float t1)
     float b = 2*dot(r.direction,r.origin - center);
     float a = dot(r.direction,r.direction); 
     float c = dot(r.origin - center,r.origin - center) - radius *radius;
-    float delta = b*b - 4*a*c ;
+    float delta = b*b - 4*a*c ; 
     if (delta <= 0 ) return {material,INFINITY,{}};
 
     float x0 = (-2*dot(r.direction,r.origin - center) - sqrt(delta))/(2*dot(r.direction,r.direction));
