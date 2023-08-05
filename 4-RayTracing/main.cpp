@@ -42,8 +42,8 @@ int main() {
 
     // Build Light
     std::vector<Light *> lights;
-    PointLight light0{{2, 2, 0}, {0.9, 0.9, 0.9}};
-    AmbientLight light1{{0.2, 0.3, 0.1}};
+    PointLight light0{{1, 1, -3}, {0.9, 0.9, 0.9}};
+    AmbientLight light1{{0.4, 0.6, 1.0}};
     lights.push_back(&light0);
     lights.push_back(&light1);
 

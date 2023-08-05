@@ -16,9 +16,7 @@ struct Material{
         Color<float> d = diffuse / float(PI);
 
         // Specular
-        // vec3<float> h = normalize(light_pos + eye);  TODO
-        vec3<float> h = light_pos + eye; 
-        h = normalize(h);
+        vec3<float> h = normalize(light_pos + eye); 
         int p = 10; // decay
         Color<float> s = specular * pow(fmax(0,dot(normal ,h)),p);
         return d+s;
