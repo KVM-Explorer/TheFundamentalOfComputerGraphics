@@ -9,23 +9,23 @@ struct vec3{
     vec3(const vec3<T> &v):x(v.x),y(v.y),z(v.z){};
 
 
-    vec3 &operator-(const vec3 &u) {
-        vec3 ret;
+    vec3<T> operator-(const vec3 &u) {
+        vec3<T> ret;
         ret.x = x -  u.x;
         ret.y = y -  u.y;
         ret.z = z -  u.z;
         return ret;
     }
-    vec3 & operator*(const float & u)
+    vec3<T> operator*(const float & u)
     {
-        vec3 ret;
+        vec3<T> ret;
         ret.x = x * u;
         ret.y = y * u;
         ret.z = z * u;
         return ret;
     }
-    vec3 &operator+(const vec3 &u) {
-        vec3 ret;
+    vec3<T> operator+(const vec3 &u) {
+        vec3<T> ret;
         ret.x = x + u.x;
         ret.y = y + u.y;
         ret.z = z + u.z;
