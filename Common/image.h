@@ -1,10 +1,9 @@
 #include "color.h"
-#include <array>
 #include <cstdint>
 #include <fstream>
-#include <memory>
 #include <string>
 #include <vector>
+#include <format>
 
 template <typename T> class PPM {
   private:
@@ -22,8 +21,8 @@ template <typename T> class PPM {
         output << "255\n";
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                output << get(i, j).r << " " << get(i, j).g << " "
-                       << get(i, j).b << "\n";
+
+                output << std::format("{} {} {}\n", get(i, j).r, get(i, j).g, get(i, j).b);
             }
         }
     }
