@@ -50,3 +50,9 @@ vec3<T> normalize(const vec3<T>& a)
     float l = len(a);
     return {a.x/l,a.y/l,a.z/l};
 }
+
+template <typename T>
+vec3<T> cross(const vec3<T> &a, const vec3<T> &b) {
+    return {a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z,
+            a.x * b.y - a.y * b.x};
+}
