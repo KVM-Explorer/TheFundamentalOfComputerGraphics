@@ -13,7 +13,7 @@ struct Material{
     Color<float> evaluate(vec3<float> normal,vec3<float> light_pos,vec3<float> eye)
     {
         // Diffuse
-        Color<float> d = diffuse / float(PI);
+        Color<float> d = diffuse * fmax(0,dot(normal,light_pos));
 
         // Specular
         vec3<float> h = normalize(light_pos + eye); 
